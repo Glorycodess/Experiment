@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Spring easing — used by toggle, nav indicators, and future interactive elements */
+:root {
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
 /* Class-based dark mode — toggled by adding .dark to <html> */
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -32,6 +37,12 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 200ms ease, color 200ms ease;
+  scroll-behavior: smooth;
+}
+
+/* Offset anchor scrolls so the sticky header doesn't cover section headings */
+section[id] {
+  scroll-margin-top: 4rem;
 }
 
 body {
